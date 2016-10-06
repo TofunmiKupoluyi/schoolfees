@@ -1,0 +1,93 @@
+<html ng-app="schoolfees">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            .panel {
+            background-color: rgba(245, 245, 245, 0.4);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar navbar-primary" style="background-color:#f1f4ef; border-radius:0">
+            <div class="navbar-header">
+                <a class="navbar-brand">School Fees</a>
+            </div>
+            <div class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="#">Schools</a></li>
+            </div>
+        </div>
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-lg-4 col-xs-2">
+                    
+                </div>
+                <div class="col-lg-4 col-xs-8">
+                    <div class="panel panel-default" style="">
+                        <div class="panel-body" ng-controller="payment">
+                            <form>
+                                <div class="panel-heading">
+                                <h2><small>Pay Fees - Payment</small></h2>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <input class="form-control input-lg" value="&#x20A6; {{fees}}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control input-lg" ng-model="paymentMethod" ng-change="showDiv()">
+                                            <option value="">Payment Method</option>
+                                            <option value="1">Card </option>
+                                            <option value="2">Account </option>
+                                    </select>
+                                    <div class="accountPanel" ng-show="visibleAccount">
+                                        <hr>
+                                        <form>
+                                            <input class="form-control input-lg" placeholder="Account Number">
+                                        </form>
+                                    </div>
+                                    <div class="cardPanel" ng-show="visibleCard">
+                                        <hr>
+                                        <form>
+                                            <div class="form-group">
+                                                <input class="form-control input-lg" placeholder="Card Number" id="cardNumber" ng-model="cardNumber" maxlength="19">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4">
+                                                    <input class="form-control input-lg" placeholder="Exp.Mo" id="expiryMonth" ng-model="expiryMonth" maxlength="2">
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <input class="form-control input-lg" placeholder="Exp.Year" id="expiryYear" ng-model="expiryYear" maxlength="2">
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <input class="form-control input-lg" placeholder="CVV" id="cvv" ng-model="cvv" maxlength="3">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <!--<div class="col-xs-2"></div>-->
+                                        <div class="col-xs-12">
+                                            <button class="form-control btn btn-default input-lg" style="background-color:hsl(0, 0%, 98%)" ng-disabled="activity" ng-click="sendForm()"><b>Pay</b></button>
+                                            <br><br>
+                                            <span class="text-danger"><b>{{message}}</b></span>
+                                        </div>
+                                        <!--<div class="col-xs-2"></div>-->
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-2"></div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="/static/jqueryapp.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="/static/angularapp.js"></script>
+    </body>
+</html>
