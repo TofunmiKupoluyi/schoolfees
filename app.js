@@ -4,10 +4,10 @@ var mysql = require("mysql");
 var session = require("express-session");
 var bodyParser= require("body-parser");
 var connection = mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"",
-    database:"schoolfees"
+    host:process.env.MYSQL_HOST || "localhost",
+    user:process.env.MYSQL_USERNAME|| "root",
+    password:process.env.MYSQL_PASSWORD||"",
+    database:process.env.MYSQL_DB||"schoolfees",
 })
 var app= express();
 var flutterwave= new Flutterwave("tk_9eFaO7BCLXiWhTyJRAnq","tk_snN5ZPBHxO");
