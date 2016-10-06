@@ -14,6 +14,7 @@ var flutterwave= new Flutterwave("tk_9eFaO7BCLXiWhTyJRAnq","tk_snN5ZPBHxO");
 var router = express.Router();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.listen(process.env.PORT || 3000);
 app.use("/static", express.static("./static"));
 app.use(session({secret:"wriwoem2k39903"}));
 app.get("/", function(request, response){
@@ -154,4 +155,3 @@ app.get("/thankyou", function(request, response){
         response.sendfile("./home.html");
     }
 });
-app.listen(3000);
