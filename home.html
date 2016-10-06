@@ -1,0 +1,84 @@
+<html ng-app="schoolfees">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            .panel {
+            background-color: rgba(245, 245, 245, 0.4);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar navbar-primary" style="background-color:#f1f4ef; border-radius:0">
+            <div class="navbar-header">
+                <a class="navbar-brand">School Fees</a>
+            </div>
+            <div class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="#">Schools</a></li>
+            </div>
+        </div>
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-lg-4 col-xs-2">
+                    
+                </div>
+                <div class="col-lg-4 col-xs-8">
+                    <div class="panel panel-default" style="">
+                        <div class="panel-body" ng-controller="initialize">
+                            <form ng-submit="submitForm()">
+                                <div class="panel-heading">
+                                <h2><small>Pay Fees - Personal Information</small></h2>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <input class="form-control input-lg" placeholder="First Name" ng-model="firstName">
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <input class="form-control input-lg" placeholder="Last Name" ng-model="lastName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control input-lg" type="email" placeholder="Email address" ng-model="email">
+                                </div>
+                                <hr>
+                                <div class="form-group">    
+                                    <input class="form-control input-lg" placeholder="Relationship" ng-model="relationship">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <!--<div class="col-xs-2"></div>-->
+                                        <div class="col-xs-12">
+                                            <button class="form-control btn btn-default input-lg" style="background-color:hsl(0, 0%, 98%)"><b>Next</b></button>
+                                        </div>
+                                        <!--<div class="col-xs-2"></div>-->
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <center><h4><small>&#xa9; 2016 PayWithCapture Ltd. Powered by Flutterwave. </small></h4></center>
+                    <br>
+                    <center><h4><small>Supported by: </small></h4></center>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-6" >
+                            <img src="/static/accesslogo.png" style="width:100%; height:15%">
+                        </div>
+                        <div class="col-lg-6 col-xs-6" >
+                            <img src="/static/nibsslogo.jpg" style="width:100%; height:15%">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-2"></div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="/static/jquery.cycle2.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="/static/angularapp.js"></script>
+    </body>
+</html>
