@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node app.js"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular-chart.js": "^1.0.3",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
     "express-sessions": "^1.0.6",

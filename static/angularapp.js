@@ -21,8 +21,9 @@ app.controller("initialize", function($scope, personalInformation){
     };
 });
 
-app.service("studentInformation", function($http, $window){
+app.service("studentInformation", function($http, $window, $q){
     var fees=0;
+    var narrations="";
     this.submitForm= function(data){
         $http.post("/student", data).then(function(response){
             fees=response.data.fees;
@@ -30,8 +31,24 @@ app.service("studentInformation", function($http, $window){
             window.location="/pay";
         });
     };
+    this.getNarration= function(){
+        var deferred= $q.defer();
+        $http.get("/narration").then(function(response){
+            var narrations= response.data.narrations;
+            if(narrations){
+                deferred.resolve(narrations);
+            }
+            else{
+                deferred.reject("No narrations available");
+            }
+        });
+        return deferred.promise;
+    };
 });
 app.controller("studInfo", function($scope, studentInformation){
+    studentInformation.getNarration().then(function(response){
+        $scope.narrations= response;
+    });
     $scope.submitForm= function(){
         console.log($scope.yearGroup);
         var data= {
@@ -39,7 +56,8 @@ app.controller("studInfo", function($scope, studentInformation){
         lastName: $scope.lastName,
         yearGroup: $scope.yearGroup,
         arm: $scope.arm,
-        studentId: $scope.studentId
+        studentId: $scope.studentId,
+        narration: $scope.narration
         };
         studentInformation.submitForm(data);
     };
